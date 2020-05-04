@@ -1,4 +1,21 @@
+#!/usr/bin/env bash
+
+# --- install blackarch
+
+curl -O https://blackarch.org/strap.sh
+
+if [ " sha1sum strap.sh " != "9f770789df3b7803105e5fbc19212889674cd50" ]; then
+  exit 1
+fi
+
+chmod +x strap.sh
+
+sudo ./strap.sh
+
+# ---
+
 sudo pacman -Syu
+
 sudo pacman -S \
   vim \
   freetype2 \
